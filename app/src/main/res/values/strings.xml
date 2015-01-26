@@ -20,5 +20,6 @@
     <string name="checkbox_onion">Onion</string>
     <string name="button_place_order">Place order</string>
     <string name="checkbox_olives">Olives</string>
+    <string name="title_activity_order_confirmation">OrderConfirmationActivity</string>
 
 </resources>

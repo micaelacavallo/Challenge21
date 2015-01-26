@@ -53,8 +53,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/topping_options"
-        android:id="@+id/textView3"
-        android:layout_marginTop="5dp" />
+        android:id="@+id/textView3" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -117,7 +116,6 @@
         android:layout_height="wrap_content"
         android:text="@string/button_place_order"
         android:id="@+id/button_place_order"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp" />
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

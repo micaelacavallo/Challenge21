@@ -1,18 +1,57 @@
 package com.example.micaelacavallo.sandwichshop;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+
+import java.util.ArrayList;
 
 
 public class OrderFormActivity extends ActionBarActivity {
+    Button mButtonPlaceOrder;
+    Button mButtonPlaceOrderLand;
+    ArrayList<CheckBox> mCheckBoxSelected;
+
+
+    private class ButtonListener implements View.OnClickListener{
+
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(OrderFormActivity.this, OrderConfirmationActivity.class);
+            if (v == mButtonPlaceOrder)
+            {
+
+            }
+            else
+            {
+
+            }
+            startActivity(intent);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_form);
+        mCheckBoxSelected = new ArrayList<>();
+        prepareButtonPlaceOrder();
     }
+
+    private void prepareButtonPlaceOrder() {
+        ButtonListener listener = new ButtonListener();
+        mButtonPlaceOrder = (Button)findViewById(R.id.button_place_order);
+        mButtonPlaceOrder.setOnClickListener(listener);
+        mButtonPlaceOrderLand = (Button)findViewById(R.id.button_place_order_land);
+        mButtonPlaceOrderLand.setOnClickListener(listener);
+    }
+
 
 
     @Override
