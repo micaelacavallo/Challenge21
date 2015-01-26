@@ -20,14 +20,13 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/bread_options"
-        android:id="@+id/textView2"
-        android:layout_marginTop="20dp" />
+        android:id="@+id/textView2" />
 
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:checkedButton="@+id/radio_button_wheat">
 
         <RadioButton
@@ -55,49 +54,56 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/topping_options"
         android:id="@+id/textView3"
-        android:layout_marginTop="20dp" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/checkbox_tomato"
-        android:id="@+id/checkBox"
         android:layout_marginTop="10dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/checkbox_tomato"
+        android:id="@+id/check_box_tomato"
+        android:checked="false"
+        android:layout_marginTop="5dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/checkbox_lettuce"
-        android:id="@+id/checkBox" />
+        android:id="@+id/check_box_lettuce"
+        android:checked="false" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/checkbox_bacon"
-        android:id="@+id/checkBox" />
+        android:id="@+id/check_box_bacon"
+        android:checked="false" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/checkbox_egg"
-        android:id="@+id/checkBox" />
+        android:id="@+id/check_box_egg"
+        android:checked="false" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/checkbox_pickles"
-        android:id="@+id/checkBox" />
+        android:id="@+id/check_box_pickles"
+        android:checked="false" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/checkbox_cheese"
-        android:id="@+id/checkBox" />
+        android:id="@+id/check_box_cheese"
+        android:checked="false" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/checkbox_onion"
-        android:id="@+id/checkBox" />
+        android:id="@+id/check_box_onion"
+        android:checked="false" />
 
 </LinearLayout>
