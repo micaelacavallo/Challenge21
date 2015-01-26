@@ -18,5 +18,7 @@
     <string name="checkbox_lettuce">Lettuce</string>
     <string name="checkbox_cheese">Cheese</string>
     <string name="checkbox_onion">Onion</string>
+    <string name="button_place_order">Place order</string>
+    <string name="checkbox_olives">Olives</string>
 
 </resources>
