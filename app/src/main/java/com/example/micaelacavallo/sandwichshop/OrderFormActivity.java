@@ -46,7 +46,6 @@ public class OrderFormActivity extends ActionBarActivity {
                         toppingOptions += mRadioButtonWhite.getText().toString() + " bread \n";
                     }
                 }
-
                 if (mCheckBoxBacon.isChecked()) {
                         toppingOptions += mCheckBoxBacon.getText().toString() + "\n";
                 }

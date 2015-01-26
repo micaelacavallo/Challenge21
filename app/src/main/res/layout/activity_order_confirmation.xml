@@ -12,7 +12,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/text_view_order_placed"
         android:id="@+id/textView4"
-        android:layout_marginTop="67dp"
+        android:layout_marginTop="79dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
