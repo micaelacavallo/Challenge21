@@ -1,9 +1,11 @@
 package com.example.micaelacavallo.sandwichshop;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class OrderConfirmationActivity extends ActionBarActivity {
@@ -12,6 +14,9 @@ public class OrderConfirmationActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_confirmation);
+        String summary = getIntent().getStringExtra(Intent.EXTRA_TEXT);
+        TextView textView = (TextView)findViewById(R.id.text_view_summary);
+        textView.setText(summary);
     }
 
 
