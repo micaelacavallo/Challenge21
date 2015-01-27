@@ -1,17 +1,38 @@
 package com.example.micaelacavallo.sandwichshop;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 
 public class SandwichCountSelectionActivity extends ActionBarActivity {
+    Button mButtonContinue;
+    EditText mEditTextAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sandwich_count_selection);
+        mEditTextAccount = (EditText)findViewById(R.id.editText);
+        prepareButtonContinue();
+    }
+
+    private void prepareButtonContinue() {
+        mButtonContinue = (Button)findViewById(R.id.button_continue);
+        mButtonContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SandwichCountSelectionActivity.this,OrderFormActivity.class);
+                intent.putExtra(Intent.EXTRA_TEXT, mEditTextAccount.getText().toString());
+                startActivity(intent);
+            }
+        });
     }
 
 
