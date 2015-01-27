@@ -20,6 +20,10 @@
             android:name=".OrderConfirmationActivity"
             android:label="@string/title_activity_order_confirmation" >
         </activity>
+        <activity
+            android:name=".SandwichCountSelectionActivity"
+            android:label="@string/title_activity_sandwich_count_selection" >
+        </activity>
     </application>
 
 </manifest>
