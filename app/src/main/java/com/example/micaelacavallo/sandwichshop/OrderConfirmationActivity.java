@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 
 public class OrderConfirmationActivity extends ActionBarActivity {
 
@@ -14,9 +16,25 @@ public class OrderConfirmationActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_confirmation);
-        String summary = getIntent().getStringExtra(Intent.EXTRA_TEXT);
-        TextView textView = (TextView)findViewById(R.id.text_view_summary);
-        textView.setText(summary);
+        TextView mTextViewSummary = (TextView)findViewById(R.id.text_view_summary);
+        ArrayList<Sandwich> orders = getIntent().getExtras().getParcelableArrayList(OrderFormActivity.ORDERS);
+        String summary = "";
+        int n = 0;
+        for (Sandwich s : orders){
+            n++;
+            String result = "Sandwich " + Integer.toString(n) + ": ";
+            result += s.getBread() + " " + (s.getCheese()?"cheese ":"") +
+                    (s.getPickles()?"pickles ":"") +
+                    (s.getLettuce()?"lettuce ":"") +
+                    (s.getTomato()?"tomato ":"") +
+                    (s.getBacon()?"bacon":"") +
+                    (s.getEgg()?"egg":"") +
+                    (s.getOlives()?"olives":"") +
+                    (s.getOnion()?"onion": "") + "\n";
+            summary += result;
+        }
+
+       mTextViewSummary.setText(summary);
     }
 
 

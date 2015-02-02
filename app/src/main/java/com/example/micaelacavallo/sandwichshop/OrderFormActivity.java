@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -28,52 +29,11 @@ public class OrderFormActivity extends ActionBarActivity {
     CheckBox mCheckBoxOlives;
     CheckBox mCheckBoxPickles;
     CheckBox mCheckBoxOnion;
+    int num_total_orders;
+    ArrayList<Sandwich> mOrders;
+    public static final String TOTAL_ORDERS = "TOTAL_ORDERS";
+    public static final String ORDERS = "ORDERS";
 
-
-    private class ButtonListener implements View.OnClickListener{
-        @Override
-        public void onClick(View v) {
-           String toppingOptions = "";
-           Intent intent = new Intent(OrderFormActivity.this, OrderConfirmationActivity.class);
-                if (mRadioButtonRye.isChecked()) {
-                    toppingOptions += mRadioButtonRye.getText().toString() + " bread \n";
-                }
-                else {
-                    if (mRadioButtonWheat.isChecked()) {
-                        toppingOptions += mRadioButtonWheat.getText().toString() + " bread \n";
-                    }
-                    else {
-                        toppingOptions += mRadioButtonWhite.getText().toString() + " bread \n";
-                    }
-                }
-                if (mCheckBoxBacon.isChecked()) {
-                        toppingOptions += mCheckBoxBacon.getText().toString() + "\n";
-                }
-                if (mCheckBoxCheese.isChecked()) {
-                    toppingOptions += mCheckBoxCheese.getText().toString() + "\n";
-                }
-                if (mCheckBoxEgg.isChecked()) {
-                    toppingOptions += mCheckBoxEgg.getText().toString() + "\n";
-                }
-                if (mCheckBoxTomato.isChecked()) {
-                    toppingOptions += mCheckBoxTomato.getText().toString() + "\n";
-                }
-                if (mCheckBoxLettuce.isChecked()) {
-                    toppingOptions += mCheckBoxLettuce.getText().toString() + "\n";
-                }
-                if (mCheckBoxOlives.isChecked()) {
-                    toppingOptions += mCheckBoxOlives.getText().toString() + "\n";
-                }
-                if (mCheckBoxOnion.isChecked()) {
-                    toppingOptions += mCheckBoxOnion.getText().toString() + "\n";
-                }
-                if (mCheckBoxPickles.isChecked()) {
-                    toppingOptions += mCheckBoxPickles.getText().toString();
-                }
-           intent.putExtra(Intent.EXTRA_TEXT, toppingOptions);
-           startActivity(intent);
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +42,21 @@ public class OrderFormActivity extends ActionBarActivity {
         prepareRadioButtons();
         prepareCheckBoxs();
         prepareButtonPlaceOrder();
+        num_total_orders = Integer.parseInt(getIntent().getExtras().get(TOTAL_ORDERS).toString());
+        if (savedInstanceState!=null){
+            mOrders = savedInstanceState.getParcelableArrayList(ORDERS);
+        } else {
+            mOrders = new ArrayList<>();
+        }
+
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList(ORDERS, mOrders);
+    }
+
 
     private void prepareCheckBoxs() {
         mCheckBoxTomato = (CheckBox)findViewById(R.id.check_box_tomato);
@@ -107,7 +81,79 @@ public class OrderFormActivity extends ActionBarActivity {
         mButtonPlaceOrder.setOnClickListener(listener);
     }
 
+    private class ButtonListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            Sandwich sandwich = getOrder();
+            mOrders.add(sandwich);
 
+            if (num_total_orders == mOrders.size()) {
+                Intent intent = new Intent(OrderFormActivity.this, OrderConfirmationActivity.class);
+                Bundle extrasBundle = new Bundle();
+                extrasBundle.putParcelableArrayList(ORDERS, mOrders);
+                intent.putExtras(extrasBundle);
+                startActivity(intent);
+            } else
+            {
+                    reset();
+            }
+            Toast.makeText( getBaseContext(),"The sandwich has been added to the order", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private Sandwich getOrder() {
+        Sandwich sand = new Sandwich();
+
+        if (mRadioButtonRye.isChecked()) {
+            sand.setBread("Rye");
+        }
+        else {
+            if (mRadioButtonWheat.isChecked()) {
+                sand.setBread("Wheat");
+            }
+            else {
+                sand.setBread("White");
+            }
+        }
+        if (mCheckBoxBacon.isChecked()) {
+            sand.setBacon(true);
+        }
+        if (mCheckBoxCheese.isChecked()) {
+            sand.setCheese(true);
+        }
+        if (mCheckBoxEgg.isChecked()) {
+            sand.setEgg(true);
+        }
+        if (mCheckBoxTomato.isChecked()) {
+            sand.setTomato(true);
+        }
+        if (mCheckBoxLettuce.isChecked()) {
+            sand.setLettuce(true);
+        }
+        if (mCheckBoxOlives.isChecked()) {
+            sand.setOlives(true);
+        }
+        if (mCheckBoxOnion.isChecked()) {
+            sand.setOnion(true);
+        }
+        if (mCheckBoxPickles.isChecked()) {
+            sand.setPickles(true);
+        }
+        return sand;
+    }
+
+
+    private void reset(){
+        mRadioButtonWheat.setChecked(true);
+        mCheckBoxBacon.setChecked(false);
+        mCheckBoxCheese.setChecked(false);
+        mCheckBoxLettuce.setChecked(false);
+        mCheckBoxOlives.setChecked(false);
+        mCheckBoxOnion.setChecked(false);
+        mCheckBoxPickles.setChecked(false);
+        mCheckBoxEgg.setChecked(false);
+        mCheckBoxTomato.setChecked(false);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

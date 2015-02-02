@@ -21,9 +21,9 @@
     <string name="button_place_order">Place order</string>
     <string name="checkbox_olives">Olives</string>
     <string name="title_activity_order_confirmation">OrderConfirmationActivity</string>
-    <string name="text_view_order_placed">Order placed successfully!</string>
+    <string name="text_view_order_placed">Your order has been placed successfully!</string>
     <string name="title_activity_sandwich_count_selection">SandwichCountSelectionActivity</string>
-    <string name="text_view_restaurant">Sandwich Restaurant</string>
+    <string name="text_view_restaurant">How many sandwiches would you like to order? </string>
     <string name="button_continue">Continue</string>
 
 </resources>
