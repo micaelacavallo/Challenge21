@@ -7,4 +7,12 @@
   <color name="secondary_text">#727272</color>
   <color name="icons">#FFFFFF</color>
   <color name="divider">#B6B6B6</color>
+  <color name="primary2">#8BC34A</color>
+  <color name="primary_dark2">#689F38</color>
+  <color name="primary_light2">#DCEDC8</color>
+  <color name="accent2">#536DFE</color>
+  <color name="primary_text2">#009688</color>
+  <color name="secondary_text2">#DCEDC8</color>
+  <color name="icons2">#212121</color>
+  <color name="divider2">#B6B6B6</color>
 </resources>

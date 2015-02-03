@@ -18,7 +18,8 @@
         </activity>
         <activity
             android:name=".OrderConfirmationActivity"
-            android:label="@string/title_activity_order_confirmation" >
+            android:label="@string/title_activity_order_confirmation"
+            android:theme="@style/AppTheme2">
         </activity>
         <activity
             android:name=".OrderFormActivity"
